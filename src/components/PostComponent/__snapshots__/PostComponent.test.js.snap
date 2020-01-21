@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post component renders correctly 1`] = `
+<div
+  className="feeds-item"
+>
+  <div
+    className="feeds-item__date"
+  >
+    <strong>
+      Posted at:
+    </strong>
+     
+    <t
+      ago={false}
+      calendar={false}
+      decimal={false}
+      element={null}
+      filter={[Function]}
+      format="YYYY/MM/DD HH:mm"
+      fromNow={false}
+      interval={60000}
+      local={false}
+      onChange={[Function]}
+      titleFormat=""
+      toNow={false}
+      unit={null}
+      unix={false}
+      utc={false}
+      withTitle={false}
+    >
+      2017-12-29T19:15:04.000Z
+    </t>
+  </div>
+  <div
+    className="feeds-item__name"
+  >
+    <strong>
+      By: 
+    </strong>
+    John Doe
+  </div>
+  <div
+    className="feeds-item__text"
+  />
+</div>
+`;

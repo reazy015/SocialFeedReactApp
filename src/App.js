@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
+import FeedComponent from './components/FeedComponent';
+import HeaderComponent from './components/HeaderComponent';
+import FooterComponents from './components/FooterComponents';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <Fragment>
+            <HeaderComponent/>
+            <main className='content'>
+                <div className='container'>
+                    <FeedComponent
+                        url={'http://api.massrelevance.com/MassRelDemo/kindle.json'}
+                        step={5}
+                        interval={3}
+                        // loop={true}
+                    />
+                </div>
+            </main>
+            <FooterComponents/>
+        </Fragment>
+    );
 }
 
 export default App;
