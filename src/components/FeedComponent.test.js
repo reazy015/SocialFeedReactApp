@@ -50,8 +50,9 @@ describe('Feed Component', () => {
         const component = mount(<FeedComponent {...props} />);
         component.setState({data: postsMocks.slice(-component.props().step)});
 
-        component.setProps({interval: 5}); // force component re-render
+        component.setProps({interval: 5}); // force component re-render update() not working
 
         expect(component.find(MemoPost)).toHaveLength(props.step);
+        component.unmount();
     })
 });

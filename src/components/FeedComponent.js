@@ -9,8 +9,7 @@ const FeedComponent = (View) => {
             super(props);
             this.state = {
                 data: [],
-                limit: 0,
-                feedEnded: false,
+                limit: this.props.step,
                 timerId: null
             }
             this.setStateWithFetch = this.setStateWithFetch.bind(this);
@@ -24,12 +23,12 @@ const FeedComponent = (View) => {
             clearInterval(this.state.timerID);
         }
 
-        shouldComponentUpdate(nextProps, nextState, nextContext) {
-            return this.state.data.length !== nextState.limit;
-        }
+        // shouldComponentUpdate(nextProps, nextState, nextContext) {
+        //     return this.state.data.length !== nextState.limit;
+        // }
 
         feedTimer() {
-            const timerID = setInterval(() => {
+            const timerID = setInterval(async () => {
                 this.fetchData(this.props.url, this.props.step, this.state.limit)
                     .then(({data}) => this.setStateWithFetch(data, this.props.step, this.state.limit))
                     .catch((err) => { console.log(err); });
@@ -39,7 +38,7 @@ const FeedComponent = (View) => {
         }
 
         fetchData(url, step, limit) {
-            return axios.get(`${url}/?limit=${!limit ? step : limit}`);
+            return axios.get(`${url}/?limit=${limit}`);
         }
 
         setStateWithFetch(data, step, limit) {

@@ -1,5 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Post component Re-renders  with correct props when new props are coming 1`] = `
+<Post
+  post={
+    Object {
+      "created_at": "Fri Dec 28 19:01:00 +0000 2017",
+      "id": 100,
+      "text": "New post text",
+      "user": Object {
+        "name": "Foo Bar",
+      },
+    }
+  }
+>
+  <div
+    className="feeds-item"
+  >
+    <div
+      className="feeds-item__date"
+    >
+      <strong>
+        Posted at:
+      </strong>
+       
+      <span>
+        <t
+          ago={false}
+          calendar={false}
+          decimal={false}
+          element={null}
+          filter={[Function]}
+          format="YYYY/MM/DD HH:mm"
+          fromNow={false}
+          interval={60000}
+          local={false}
+          onChange={[Function]}
+          titleFormat=""
+          toNow={false}
+          unit={null}
+          unix={false}
+          utc={false}
+          withTitle={false}
+        >
+          <time
+            dateTime={"2017-12-28T19:01:00.000Z"}
+          >
+            2017/12/28 22:01
+          </time>
+        </t>
+      </span>
+    </div>
+    <div
+      className="feeds-item__name"
+    >
+      <strong>
+        By: 
+      </strong>
+      Foo Bar
+    </div>
+    <div
+      className="feeds-item__text"
+    >
+      New post text
+    </div>
+  </div>
+</Post>
+`;
+
 exports[`Post component renders correctly 1`] = `
 <div
   className="feeds-item"
@@ -11,26 +78,28 @@ exports[`Post component renders correctly 1`] = `
       Posted at:
     </strong>
      
-    <t
-      ago={false}
-      calendar={false}
-      decimal={false}
-      element={null}
-      filter={[Function]}
-      format="YYYY/MM/DD HH:mm"
-      fromNow={false}
-      interval={60000}
-      local={false}
-      onChange={[Function]}
-      titleFormat=""
-      toNow={false}
-      unit={null}
-      unix={false}
-      utc={false}
-      withTitle={false}
-    >
-      2017-12-29T19:15:04.000Z
-    </t>
+    <span>
+      <t
+        ago={false}
+        calendar={false}
+        decimal={false}
+        element={null}
+        filter={[Function]}
+        format="YYYY/MM/DD HH:mm"
+        fromNow={false}
+        interval={60000}
+        local={false}
+        onChange={[Function]}
+        titleFormat=""
+        toNow={false}
+        unit={null}
+        unix={false}
+        utc={false}
+        withTitle={false}
+      >
+        2017-12-29T19:15:04.000Z
+      </t>
+    </span>
   </div>
   <div
     className="feeds-item__name"
@@ -42,6 +111,8 @@ exports[`Post component renders correctly 1`] = `
   </div>
   <div
     className="feeds-item__text"
-  />
+  >
+    Lorem ipsum test
+  </div>
 </div>
 `;
