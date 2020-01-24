@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import fetchData from "../utils/fetchData";
 
 const useFeedInterval = (url, step, delay) => {
@@ -6,15 +6,15 @@ const useFeedInterval = (url, step, delay) => {
     const [limit, setLimit] = useState(step);
     const currentCallback = useRef();
 
-    const customCallback = async () => {
+    const customCallback = useCallback(async () => {
         try {
             const {data} = await fetchData(url, {limit});
             setLimit(prevLimit => prevLimit + step);
             setPosts([...data.slice(-step)]);
         } catch (err) {
-            console.log(err);
+            console.log(err)
         }
-    };
+    }, [limit]);
 
     useEffect(() => {
         currentCallback.current = customCallback;
@@ -33,7 +33,7 @@ const useFeedInterval = (url, step, delay) => {
         return () => clearInterval(timerId);
     });
 
-    return posts
+    return posts;
 }
 
 export default useFeedInterval;

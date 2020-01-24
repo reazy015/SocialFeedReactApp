@@ -12,8 +12,6 @@ const Post = (post) => {
     )
 };
 
-const MemoPost = React.memo(Post, (prevProps, nextProps) => {
-    return prevProps.id === nextProps.id;
-})
+const MemoPost = React.memo(Post, (prevProps, nextProps) =>  prevProps.id === nextProps.id)
 
 export default MemoPost
