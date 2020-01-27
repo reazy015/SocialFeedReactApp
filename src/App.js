@@ -13,7 +13,7 @@ const App = () => {
                 <div className='container'>
                     <FunctionalFeedContainer
                         url={'http://api.massrelevance.com/MassRelDemo/kindle.json'}
-                        step={1}
+                        step={3}
                         interval={3}
                     />
                 </div>

@@ -4,6 +4,7 @@ import fetchData from "../utils/fetchData";
 const useFeedInterval = (url, step, delay) => {
     const [posts, setPosts] = useState([]);
     const [limit, setLimit] = useState(step);
+    const [error, setError] = useState({});
     const currentCallback = useRef();
 
     const customCallback = useCallback(async () => {
@@ -12,7 +13,8 @@ const useFeedInterval = (url, step, delay) => {
             setLimit(prevLimit => prevLimit + step);
             setPosts([...data.slice(-step)]);
         } catch (err) {
-            console.log(err)
+            setError(err);
+            // console.log(err)
         }
     }, [limit]);
 
@@ -33,7 +35,7 @@ const useFeedInterval = (url, step, delay) => {
         return () => clearInterval(timerId);
     });
 
-    return posts;
+    return [posts, error];
 }
 
 export default useFeedInterval;

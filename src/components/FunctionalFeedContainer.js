@@ -1,15 +1,15 @@
-import React, { useState, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import propTypes from 'prop-types';
 import useFeedInterval from '../customHooks/useFeedIntervalHook';
 import FeedsWrapper from './FeedsWrapper';
 
 const FunctionalFeedContainer = ({url, step, interval}) => {
 
-    const posts = useFeedInterval(url, step, interval);
+    const [posts, error] = useFeedInterval(url, step, interval);
 
     return (
         <Fragment>
-            <FeedsWrapper posts={posts}/>
+            <FeedsWrapper posts={posts} error={error}/>
         </Fragment>
     );
 };
