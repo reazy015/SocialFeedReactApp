@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import FeedComponent from './components/FeedComponent';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponents from './components/FooterComponents';
 import FunctionalFeedContainer from './components/FunctionalFeedContainer';

@@ -21,7 +21,8 @@ describe('FeedsWrapper component', () => {
         const errorMessage = '404 error';
         const component = shallow(<FeedsWrapper posts={[]} error={new Error(errorMessage)} />);
 
-        expect(component.find('.error').length).toEqual(1);
-        expect(component.find('.error').text()).toEqual(errorMessage);
+        expect(component.find(MemoPost).length).toBe(0);
+        expect(component.find('.error').length).toBe(1);
+        expect(component.find('.error').text()).toBe(errorMessage);
     });
 });
