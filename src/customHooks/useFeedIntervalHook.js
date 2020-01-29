@@ -14,9 +14,8 @@ const useFeedInterval = (url, step, delay) => {
             setPosts([...data.slice(-step)]);
         } catch (err) {
             setError(err);
-            // console.log(err)
         }
-    }, [limit]);
+    }, [url, step, limit]);
 
     useEffect(() => {
         currentCallback.current = customCallback;

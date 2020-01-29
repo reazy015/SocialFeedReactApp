@@ -11,7 +11,7 @@ const FeedsWrapper = ({posts, error}) => {
         </div>
     }
 
-    if(error.message) output = <div className='error'>{error.message}</div>;
+    if (error.message) output = <div className='error'>{error.message}</div>;
 
     return (
         <Fragment>
