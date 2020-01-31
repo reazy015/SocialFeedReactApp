@@ -4,7 +4,7 @@ import fetchData from "../utils/fetchData";
 const useFeedInterval = (url, step, delay) => {
     const [posts, setPosts] = useState([]);
     const [limit, setLimit] = useState(step);
-    const [error, setError] = useState({});
+    const [error, setError] = useState();
     const currentCallback = useRef();
 
     const customCallback = useCallback(async () => {
@@ -12,8 +12,8 @@ const useFeedInterval = (url, step, delay) => {
             const {data} = await fetchData(url, {limit});
             setLimit(prevLimit => prevLimit + step);
             setPosts([...data.slice(-step)]);
-        } catch (err) {
-            setError(err);
+        } catch (error) {
+            setError(error);
         }
     }, [url, step, limit]);
 
@@ -23,16 +23,15 @@ const useFeedInterval = (url, step, delay) => {
 
     useEffect(() => {
         currentCallback.current();
-    }, []);
 
-    useEffect(() => {
         const feed = () => {
             currentCallback.current();
         };
-
         let timerId = setInterval(feed, delay * 1000);
-        return () => clearInterval(timerId);
-    });
+        return () => {
+            clearInterval(timerId);
+        };
+    }, []);
 
     return [posts, error];
 }

@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponents from './components/FooterComponents';
 import FunctionalFeedContainer from './components/FunctionalFeedContainer';
+import FeedsWrapperContainer from './components/FeedsWrapperContainer';
 import './App.css';
 
 const App = () => {

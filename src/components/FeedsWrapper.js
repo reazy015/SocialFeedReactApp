@@ -3,21 +3,19 @@ import MemoPost from './PostComponent/PostComponent';
 import propTypes from 'prop-types';
 
 const FeedsWrapper = ({posts, error}) => {
-    let output;
-
-    if (posts.length && !error.message) {
-        output = <div className={posts.length > 1 ? 'feeds-wrapper' : ''}>
-            {posts.map(post => <MemoPost key={post.id} {...post}/>)}
-        </div>
+    if (error) {
+        return  <div className='error'>{error.message}</div>
     }
 
-    if (error.message) output = <div className='error'>{error.message}</div>;
+    if (posts.length && !error) {
+        return (
+            <div className={posts.length > 1 ? 'feeds-wrapper' : ''}>
+                {posts.map(post => <MemoPost key={post.id} {...post}/>)}
+            </div>
+        )
+    }
 
-    return (
-        <Fragment>
-            {output}
-        </Fragment>
-    );
+    return null
 };
 
 FeedsWrapper.propTypes = {

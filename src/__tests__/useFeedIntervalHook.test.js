@@ -21,7 +21,7 @@ describe('useFeedInterval Hook', () => {
         expect(Array.isArray(result.current[0])).toBe(true);
     });
 
-    it('Should return error object with 404 response  if url is incorrect', async() => {
+    it('Should return error  if url is incorrect', async() => {
         const { result, waitForNextUpdate } = renderHook(() => useFeedInterval(wrongUrl, initialProps.step, initialProps.interval));
         await act(async ()=> {
             await waitForNextUpdate();

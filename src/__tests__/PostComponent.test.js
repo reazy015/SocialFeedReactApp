@@ -15,7 +15,7 @@ describe('Post component', () => {
 
     it('renders correctly', async () => {
         const component = shallow(<MemoPost {...post}/>);
-        expect(toJson(component)).toMatchSnapshot();
+        expect(component).toMatchSnapshot();
     });
 
     it('Re-renders  with correct props when new props are coming', () => {
@@ -29,7 +29,7 @@ describe('Post component', () => {
         }
         const component = mount(<MemoPost {...post}/>);
         component.setProps({post: {...newPost}}, () => {
-            expect(toJson(component)).toMatchSnapshot();
+            expect(component).toMatchSnapshot();
          });
         component.unmount();
     })
